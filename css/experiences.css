@@ -11,13 +11,13 @@
 .wave{
     width: 100%;
     position: relative;
-    top: 2px;
+    top: 20px;
     color: var(--primary-color)
 }
 
 .wave-bottom{
     transform: scaleY(-1);
-    top: -2px;
+    top: -18px;
 }
 
 .experiences-title {
@@ -129,4 +129,7 @@
   .experience_left {
     text-align: right;
   }
+
+
+
   }
