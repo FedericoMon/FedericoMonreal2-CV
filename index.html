@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +9,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&family=Open+Sans:wght@400;500;600&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <script>
+       const userTheme = localStorage.getItem("theme");
+       const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+        if(userTheme === "dark" || (!userTheme && darkQuery.matches)){
+            setTheme("dark");
+        }
+
+        darkQuery.addEventListener("change", function(e) {
+            if(!localStorage.getItem("theme"))
+            setTheme(e.matches ? "dark" : "light");
+        });
+
+        function setTheme(newTheme) {
+            document.documentElement.setAttribute("data-theme", newTheme)
+        }
+    </script>
+    
     <!-- libreria de normalizacion de los navegadores-->
     <link
     rel="stylesheet"
@@ -21,6 +39,7 @@
     <link rel="stylesheet" href="css/experiences.css">
     <link rel="stylesheet" href="css/contact.css">
     <script defer src="js/app.js"></script>
+    <script defer src="js/colorToggle.js"></script>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">  
@@ -33,7 +52,7 @@
                 <img 
                 height="65"
                 width="65"
-                src="img/imagencv.jpg" 
+                src="img/professional_profile.png" 
                 alt="data engineer"
                 />
                 <div>
@@ -41,10 +60,7 @@
                     {Data Analyst and App developer}
                 </div>
             </a>
-            <button  class="open-menu" aria-label="Abrir menu">
-               <img   height="45"
-               width="45" src="img/burger-bar.png" alt="abrir menu">
-            </button>
+           
             <ul class="menu">
                 <button  class="close-menu" aria-label="cerrar menu">
                     <img  class="img1" height="35"
@@ -55,6 +71,20 @@
                 <li><a href="#skills">Habilidades</a></li>
                 <li><a href="#contact">Contacto</a></li>
             </ul>
+
+            <button class="dark-mode-btn" aria-label="Activar modo oscuro"> 
+                <img src="img/sun.svg" alt="" />
+            </button>
+            <button class="light-mode-btn" aria-label="Activar modo claro">
+                <img src="img/moon.svg" alt="" />
+            </button>
+            <button  class="open-menu" aria-label="Abrir menu"> 
+               <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 14.5H27" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 2H27" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 27H27" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
         </nav>
     </header>
 
@@ -84,7 +114,12 @@
     </div>
 
     <section class="experiences" id="experience">
-        <img src="img/wave_bien.svg" alt="division"  class="wave">
+        <svg  class="wave" width="1400" height="54" viewBox="0 0 1400 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+         
+            <path d="M-15.0079 22.92C354.732 63.38 953.596 -55.05 1437.13 45.63L1400 55H6.55479e-05L-15.0079 22.92Z" fill="currentColor"/>
+           
+           
+            </svg>
         <div class="experiences-body">
             <h2 class="experiences-title"> Experiencia</h2>
             <div class="experiencies-grid">
@@ -120,7 +155,14 @@
                 </div>
             </div>
         </div>
-        <img src="img/wave_bien.svg" alt="division" class=" wave wave-bottom">
+        
+        <svg  
+        class="wave wave-bottom" 
+        width="1400" 
+        height="54" viewBox="0 0 1400 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+         
+            <path d="M-15.0079 22.92C354.732 63.38 953.596 -55.05 1437.13 45.63L1400 55H6.55479e-05L-15.0079 22.92Z" fill="currentColor"/>
+        </svg>
     </section>
 
     <div class="horizontal-padding vertical-padding">
